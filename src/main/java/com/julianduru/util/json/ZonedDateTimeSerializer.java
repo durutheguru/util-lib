@@ -10,6 +10,7 @@ import com.julianduru.util.TimeUtil;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * created by julian
@@ -23,7 +24,7 @@ public class ZonedDateTimeSerializer extends JsonSerializer<ZonedDateTime> {
         JsonGenerator jsonGenerator,
         SerializerProvider serializerProvider
     ) throws IOException {
-        jsonGenerator.writeString(value.format(TimeUtil.DEFAULT_DATE_TIME_FORMATTER));
+        jsonGenerator.writeString(value.format(DateTimeFormatter.ISO_DATE_TIME));
     }
 
 }
