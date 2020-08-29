@@ -22,28 +22,6 @@
             <properties>
                 <gpg.passphrase>Super445#</gpg.passphrase>
             </properties>
-
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <name>Maven Central</name>
-                    <layout>default</layout>
-                    <url>https://repo1.maven.org/maven2</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>ossrh</id>
-                    <name>Sonatype OSSRH Snapshots</name>
-                    <layout>default</layout>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-
         </profile>
 
     </profiles>
