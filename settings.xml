@@ -33,6 +33,15 @@
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
+                <repository>
+                    <id>ossrh</id>
+                    <name>Sonatype OSSRH Snapshots</name>
+                    <layout>default</layout>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
             </repositories>
 
         </profile>
