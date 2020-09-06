@@ -12,9 +12,11 @@
 
 	<artifactId>util-lib</artifactId>
 	<name>util</name>
+	<version>${artifact.version}</version>
 	<description>Library of Utilities</description>
 
 	<properties>
+		<artifact.version>0.0.1-SNAPSHOT</artifact.version>
 		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
 	</properties>
 
@@ -24,17 +26,6 @@
 		<developerConnection>scm:git:git//github.com/durutheguru/durutheguru.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-
-<!--	<distributionManagement>-->
-<!--		<snapshotRepository>-->
-<!--			<id>ossrh</id>-->
-<!--			<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-<!--		</snapshotRepository>-->
-<!--		<repository>-->
-<!--			<id>ossrh</id>-->
-<!--			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-<!--		</repository>-->
-<!--	</distributionManagement>-->
 
 	<dependencies>
 
