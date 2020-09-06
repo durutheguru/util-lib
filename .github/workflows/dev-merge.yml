@@ -16,18 +16,19 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 14
+      - name: Set Commit Message
+        id: commit
+        run: |
+          [[ ${{ startsWith(github.head_ref, 'feature/') }} ]] && echo ::set-output name=message::"+semver: feature" \
+          || echo ::set-output name=message::"+semver: patch"
       - name: Upgrading Version
-        if: ${{ startsWith(github.head_ref, 'feature/') }}
-          env:
-            COMMIT_MSG: '+semver: feature'
-        if: ${{ startsWith(github.head_ref, 'patch/') }}
-          env:
-            COMMIT_MSG: '+semver: patch'
+        env:
+          COMMIT_MSG: ${{ steps.commit.outputs.message }}
         run: |
           git config user.email ${{ secrets.GIT_EMAIL }}
           git config user.name ${{ secrets.GIT_USERNAME }}
           git add .
-          git commit -m "$COMMIT_MSG" || true
+          git commit -m "$COMMIT_MSG" --allow-empty || true
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
