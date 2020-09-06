@@ -14,6 +14,7 @@
 	<name>util</name>
 	<version>${artifact.version}</version>
 	<description>Library of Utilities</description>
+
 	
 	<properties>
 		<artifact.version>0.0.1-SNAPSHOT</artifact.version>
