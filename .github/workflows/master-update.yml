@@ -31,7 +31,7 @@ jobs:
         run: |
           NEW_VERSION=${{ steps.gitversion.outputs.semVer }}
           echo 'Artifact Semantic Version: $NEW_VERSION'
-          sed -i 's/<artifact.version>.*<\/artifact.version>/<artifact.version>$NEW_VERSION<\/artifact.version>/g' pom.xml
+          sed -i "s/<artifact.version>.*<\/artifact.version>/<artifact.version>${NEW_VERSION}-SNAPSHOT<\/artifact.version>/g" pom.xml
       - name: Setup Java 14 env
         uses: actions/setup-java@v1
         with:
