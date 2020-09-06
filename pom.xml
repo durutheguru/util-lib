@@ -16,7 +16,7 @@
 	<description>Library of Utilities</description>
 
 	<properties>
-		<artifact.version>0.0.1</artifact.version>
+		<artifact.version>0.0.1-SNAPSHOT</artifact.version>
 		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
 	</properties>
 
