@@ -34,14 +34,28 @@ jobs:
         with:
           branch: develop
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: master
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       
         
-        
+    
+  merge-master:
+    name: Merge to Master
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    if: github.event.pull_request.merged == true
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Fetching
+      run: |
+        git fetch --all
+    - name: Merge to Master
+      uses: devmasx/merge-branch@v1.1.0
+      with:
+        type: now
+        target_branch: 'master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
         
         
