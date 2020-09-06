@@ -1,6 +1,8 @@
 package com.julianduru.util.test;
 
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
@@ -15,6 +17,17 @@ public interface DataProvider<T> {
 
 
     JpaRepository<T, Long> getRepository();
+
+
+    default T getOrSave() {
+        JpaRepository<T, Long> repository = getRepository();
+        Page<T> page = repository.findAll(PageRequest.of(0, 1));
+        if (page.hasContent()) {
+            return page.getContent().get(0);
+        }
+
+        return save();
+    }
 
 
     default T save() {
@@ -51,7 +64,6 @@ public interface DataProvider<T> {
 
     default List<T> save(T... samples) {
         JpaRepository<T, Long> repository = getRepository();
-
 
         return Arrays
             .asList(samples)
