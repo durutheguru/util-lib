@@ -22,6 +22,7 @@
 		<sonar.projectKey.config>durutheguru_util-lib</sonar.projectKey.config>
 		<sonar.organization.config>durutheguru</sonar.organization.config>
 		<sonar.host.url.config>https://sonarcloud.io</sonar.host.url.config>
+		<sonar.qualitygate.wait.config>false</sonar.qualitygate.wait.config>
 		<code.coverage.inclusions>
 			src/main/java/**
 		</code.coverage.inclusions>
