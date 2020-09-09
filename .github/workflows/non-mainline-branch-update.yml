@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - 'feature/*'
-      - 'patch/*'
+      - 'hotfix/*'
+      - 'release/*'
+      - 'support/*'
 
 jobs:
   test:
@@ -17,5 +19,5 @@ jobs:
       with:
         java-version: 14
     - name: Build with Maven
-      run: mvn -B package -s settings.xml -f pom.xml
+      run: mvn -B clean verify -s settings.xml -Psonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       
