@@ -1,6 +1,8 @@
 package com.julianduru.util.test;
 
 
+import com.julianduru.util.NullAwareBeanUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,12 @@ public interface DataProvider<T> {
     T provide();
 
 
-    T provide(T sample);
+    default T provide(T sample) {
+        T data = provide();
+        NullAwareBeanUtils.copy(sample, data);
+
+        return data;
+    }
 
 
     default List<T> provide(int count) {
