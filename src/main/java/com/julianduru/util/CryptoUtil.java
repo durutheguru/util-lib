@@ -11,6 +11,13 @@ import java.security.NoSuchAlgorithmException;
 public class CryptoUtil {
 
 
+
+    public static int hashBytes(String str) {
+        return hashBytes(str.getBytes());
+    }
+
+
+
     public static int hashBytes(byte[] bytes) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
@@ -24,3 +31,5 @@ public class CryptoUtil {
 
 
 }
+
+
