@@ -30,6 +30,17 @@ public interface JpaDataProvider<T> extends DataProvider<T> {
     }
 
 
+    default T getOrSave(T sample) {
+        JpaRepository<T, Long> repository = getRepository();
+        Page<T> page = repository.findAll(PageRequest.of(0, 1));
+        if (page.hasContent()) {
+            return page.getContent().get(0);
+        }
+
+        return save(sample);
+    }
+
+
     default T save() {
         return getRepository().save(provide());
     }
