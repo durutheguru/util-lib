@@ -37,7 +37,7 @@ public class TestMapConstruct<T, U> {
     }
 
 
-    private void assertResultEquality(Function<U, U> func) {
+    public void assertResultEquality(Function<U, U> func) {
         map.forEach(
             (key, pair) ->
                 assertThat(pair.getRight())
