@@ -3,6 +3,7 @@ package com.julianduru.util.test;
 
 
 
+import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * created by julian
  */
+@Getter
 public class TestMapConstruct<T, U> {
 
 
@@ -29,7 +31,7 @@ public class TestMapConstruct<T, U> {
                 );
             }
 
-            pair.setValue(value);
+            map.put(key, Pair.of(pair.getLeft(), value));
         }
         else {
             map.put(key, Pair.of(value, null));
