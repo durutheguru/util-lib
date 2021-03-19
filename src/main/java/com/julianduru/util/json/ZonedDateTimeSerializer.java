@@ -24,7 +24,14 @@ public class ZonedDateTimeSerializer extends JsonSerializer<ZonedDateTime> {
         JsonGenerator jsonGenerator,
         SerializerProvider serializerProvider
     ) throws IOException {
-        jsonGenerator.writeString(value.format(DateTimeFormatter.ISO_DATE_TIME));
+        jsonGenerator.writeString(serialize(value));
     }
 
+
+    public String serialize(ZonedDateTime value) {
+        return value.format(DateTimeFormatter.ISO_DATE_TIME);
+    }
+
+
 }
+
