@@ -19,7 +19,12 @@ public class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
 
     @Override
     public ZonedDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        return ZonedDateTime.parse(jsonParser.getValueAsString(), DateTimeFormatter.ISO_DATE_TIME);
+        return deserialize(jsonParser.getValueAsString());
+    }
+
+
+    public ZonedDateTime deserialize(String str) {
+        return ZonedDateTime.parse(str, DateTimeFormatter.ISO_DATE_TIME);
     }
 
 
