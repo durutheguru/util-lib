@@ -2,6 +2,7 @@ package com.julianduru.util.jobs;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
@@ -9,7 +10,7 @@ import java.util.logging.Logger;
 /**
  * created by julian on 20/03/2021
  */
-public interface JobProcessorDelegate {
+public abstract class JobProcessorDelegate {
 
 
     AtomicBoolean processing = new AtomicBoolean(false);
@@ -19,7 +20,8 @@ public interface JobProcessorDelegate {
 
 
 
-    default void run() {
+    @Async
+    public void run() throws Exception {
         if (processing.get()) {
             logger.info("Already in Progress. Returning..");
             return;
@@ -35,7 +37,7 @@ public interface JobProcessorDelegate {
     }
 
 
-    void doProcessing();
+    protected abstract void doProcessing() throws Exception;
 
 
 }
