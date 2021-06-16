@@ -30,6 +30,7 @@ public class TimeUtil {
 
 
     private final static String[] ZONE_DATE_TIME_FORMATS = new String[] {
+        "yyyy-MM-dd HH:mm:ss.SSSS Z",
         "yyyy-MM-dd HH:mm Z",
         "yyyy-MM-dd hh:mma Z",
         "yyyy-MM-dd HH:mmZ",
