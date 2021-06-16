@@ -29,7 +29,7 @@ public class ZonedDateTimeSerializer extends JsonSerializer<ZonedDateTime> {
 
 
     public String serialize(ZonedDateTime value) {
-        return value.format(DateTimeFormatter.ISO_DATE_TIME);
+        return value.format(TimeUtil.DEFAULT_ZONE_DATE_TIME_FORMATTER);
     }
 
 
