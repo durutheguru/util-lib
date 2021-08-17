@@ -24,7 +24,7 @@ public class ZonedDateTimeDeserializer extends JsonDeserializer<ZonedDateTime> {
 
 
     public ZonedDateTime deserialize(String str) {
-        return ZonedDateTime.parse(str, DateTimeFormatter.ISO_DATE_TIME);
+        return TimeUtil.parseZonedDateTime(str);
     }
 
 
