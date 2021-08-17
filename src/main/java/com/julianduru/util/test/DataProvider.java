@@ -19,6 +19,11 @@ public interface DataProvider<T> {
     T provide();
 
 
+    default Faker getFaker() {
+        return faker;
+    }
+
+
     default T provide(T sample) {
         T data = provide();
         NullAwareBeanUtils.copy(sample, data);
