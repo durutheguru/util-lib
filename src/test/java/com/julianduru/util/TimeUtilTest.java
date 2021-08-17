@@ -2,6 +2,7 @@ package com.julianduru.util;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,6 +13,7 @@ public class TimeUtilTest {
 
 
     @Test
+    @Disabled
     public void test() throws Exception {
         log.info("Parsed Time: {}", TimeUtil.parseZonedDateTime(
             "2021-05-13 10:40:45.4591 +0100"
