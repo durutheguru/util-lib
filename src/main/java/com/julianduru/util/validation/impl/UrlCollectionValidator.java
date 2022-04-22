@@ -18,6 +18,10 @@ public class UrlCollectionValidator implements ConstraintValidator<URLCollection
 
     @Override
     public boolean isValid(Collection<String> urls, ConstraintValidatorContext context) {
+        if (urls == null || urls.isEmpty()) {
+            return false;
+        }
+
         for (String url : urls) {
             try {
                 new java.net.URL(url);
