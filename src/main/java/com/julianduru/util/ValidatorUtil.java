@@ -25,6 +25,13 @@ public class ValidatorUtil {
     }
 
 
+    public static void validate(Object... items) throws ValidationException {
+        for (Object item : items) {
+            validate(item);
+        }
+    }
+
+
     public static <T> void validate(T item) throws ValidationException {
         Set<ConstraintViolation<T>> violations = getConstraintViolations(item);
         if (!violations.isEmpty()){
