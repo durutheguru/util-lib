@@ -12,7 +12,7 @@
 
 	<artifactId>util-lib</artifactId>
 	<name>util</name>
-	<version>0.13.4-SNAPSHOT</version>
+	<version>0.13.6-SNAPSHOT</version>
 	<description>Library of Utilities</description>
 
 	<properties>
