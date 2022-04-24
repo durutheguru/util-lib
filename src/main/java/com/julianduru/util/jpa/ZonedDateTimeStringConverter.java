@@ -1,6 +1,7 @@
 package com.julianduru.util.jpa;
 
 import com.julianduru.util.TimeUtil;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -15,13 +16,21 @@ public class ZonedDateTimeStringConverter implements AttributeConverter<ZonedDat
 
     @Override
     public String convertToDatabaseColumn(ZonedDateTime zonedDateTime) {
-        return zonedDateTime.format(TimeUtil.DEFAULT_ZONE_DATE_TIME_FORMATTER);
+        if (zonedDateTime != null) {
+            return zonedDateTime.format(TimeUtil.DEFAULT_ZONE_DATE_TIME_FORMATTER);
+        }
+
+        return null;
     }
 
 
     @Override
     public ZonedDateTime convertToEntityAttribute(String s) {
-        return TimeUtil.parseZonedDateTime(s);
+        if (StringUtils.hasText(s)) {
+            return TimeUtil.parseZonedDateTime(s);
+        }
+
+        return null;
     }
 
 
