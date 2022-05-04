@@ -35,7 +35,8 @@ public class TimeUtil {
         "yyyy-MM-dd hh:mma Z",
         "yyyy-MM-dd HH:mmZ",
         "yyyy-MM-dd HH:mmX",
-        "yyyy-MM-dd HH:mm"
+        "yyyy-MM-dd HH:mm",
+        "yyyy-MM-dd HH:mm:ss"
     };
 
 
@@ -89,8 +90,31 @@ public class TimeUtil {
             }
         }
 
-        throw new IllegalArgumentException(
+        log.warn(
             String.format("Unable to parse ZoneDateTime string %s", str)
+        );
+        return ZonedDateTime.of(
+            parseLocalDateTime(str), ZoneId.systemDefault()
+        );
+    }
+
+
+    public static LocalDateTime parseLocalDateTime(String str) {
+        for (String format : ZONE_DATE_TIME_FORMATS) {
+            try {
+                return LocalDateTime.parse(
+                    str, DateTimeFormatter.ofPattern(format)
+                );
+            }
+            catch (DateTimeParseException e) {
+                log.warn(
+                    String.format("Unable to parse %s with format %s", str, format)
+                );
+            }
+        }
+
+        throw new IllegalArgumentException(
+            String.format("Unable to parse date time string %s", str)
         );
     }
 

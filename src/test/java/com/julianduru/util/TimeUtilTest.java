@@ -18,6 +18,9 @@ public class TimeUtilTest {
     @Disabled
     public void testDeserializingZonedDateTimeString() throws Exception {
         log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
+            "2022-05-04 19:31:47"
+        ));
+        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
             "2021-05-13 10:40:45.4591 +0100"
         ));
         log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
