@@ -36,7 +36,8 @@ public class TimeUtil {
         "yyyy-MM-dd HH:mmZ",
         "yyyy-MM-dd HH:mmX",
         "yyyy-MM-dd HH:mm",
-        "yyyy-MM-dd HH:mm:ss"
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd HH:mm:ss.SSSSSS"
     };
 
 
@@ -93,6 +94,7 @@ public class TimeUtil {
         log.warn(
             String.format("Unable to parse ZoneDateTime string %s", str)
         );
+
         return ZonedDateTime.of(
             parseLocalDateTime(str), ZoneId.systemDefault()
         );
