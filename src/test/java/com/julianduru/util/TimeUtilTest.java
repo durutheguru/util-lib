@@ -15,20 +15,20 @@ public class TimeUtilTest {
 
 
     @Test
-    @Disabled
+//    @Disabled
     public void testDeserializingZonedDateTimeString() throws Exception {
         log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
-            "2022-04-21 18:27:09.634184"
+            "2021-09-08 21:46:10.861940"
         ));
-        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
-            "2022-05-04 19:31:47"
-        ));
-        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
-            "2021-05-13 10:40:45.4591 +0100"
-        ));
-        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
-            "2021-04-28 12:54am +0100"
-        ));
+//        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
+//            "2022-05-04 19:31:47"
+//        ));
+//        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
+//            "2021-05-13 10:40:45.4591 +0100"
+//        ));
+//        log.info("Deserialized Time: {}", TimeUtil.parseZonedDateTime(
+//            "2021-04-28 12:54am +0100"
+//        ));
     }
 
 

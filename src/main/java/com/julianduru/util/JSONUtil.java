@@ -5,10 +5,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.jayway.jsonpath.JsonPath;
+import org.assertj.core.data.MapEntry;
 import org.json.JSONObject;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
+import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * created by julian
@@ -44,6 +51,18 @@ public class JSONUtil {
 
     public static JSONObject readObject(String json, String path) {
         return new JSONObject((LinkedHashMap) JsonPath.read(json, path));
+    }
+
+
+    public static Map<String, String> readJSONMap(String jsonSource) {
+        if (!StringUtils.hasText(jsonSource)) {
+            return Map.of();
+        }
+
+        var map = new JSONObject(jsonSource).toMap();
+        return map.entrySet().stream()
+            .map(e -> Map.entry(e.getKey(), e.getValue().toString()))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
 

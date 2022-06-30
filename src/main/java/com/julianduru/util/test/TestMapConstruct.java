@@ -8,6 +8,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,6 +45,14 @@ public class TestMapConstruct<T, U> {
             (key, pair) ->
                 assertThat(pair.getRight())
                     .isEqualTo(func.apply(pair.getLeft()))
+        );
+    }
+
+
+    public void assertResultEquality(BiFunction<T, U, U> func) {
+        map.forEach(
+            (key, pair) ->
+                assertThat(pair.getRight()).isEqualTo(func.apply(key, pair.getLeft()))
         );
     }
 
