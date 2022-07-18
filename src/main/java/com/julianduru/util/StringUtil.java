@@ -14,12 +14,12 @@ public class StringUtil {
     }
 
 
-    public static String stringifyList(List<String> strings, String escapeString) {
+    public static String stringifyList(List<String> strings, String delimiter) {
         var preparedStringList = strings.stream()
             .map(
                 str -> str.trim()
-                    .replaceAll("^", escapeString)
-                    .replaceAll("$", escapeString)
+                    .replaceAll("^", delimiter)
+                    .replaceAll("$", delimiter)
             )
             .collect(Collectors.toList());
         return preparedStringList.toString();
