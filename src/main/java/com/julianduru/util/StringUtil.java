@@ -21,7 +21,7 @@ public class StringUtil {
                     .replaceAll("^", delimiter)
                     .replaceAll("$", delimiter)
             )
-            .collect(Collectors.toList());
+            .toList();
         return preparedStringList.toString();
     }
 
