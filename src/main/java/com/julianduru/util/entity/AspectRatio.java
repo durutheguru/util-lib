@@ -3,13 +3,10 @@ package com.julianduru.util.entity;
 
 import lombok.Data;
 
-import javax.persistence.Embeddable;
-
 /**
  * created by julian
  */
 @Data
-@Embeddable
 public class AspectRatio {
 
 
