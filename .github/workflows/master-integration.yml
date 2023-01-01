@@ -53,7 +53,9 @@ jobs:
         env:
           ARTIFACT_REPO_USERNAME: ${{ secrets.ARTIFACT_REPO_USERNAME }}
           ARTIFACT_REPO_PASSWORD: ${{ secrets.ARTIFACT_REPO_PASSWORD }}
-        run: mvn clean deploy -s settings.xml -f pom.xml
+        run: |
+          echo "Artifact Repo Username: $ARTIFACT_REPO_USERNAME, Password: $ARTIFACT_REPO_PASSWORD"
+          mvn clean deploy -s settings.xml -f pom.xml
       - name: Committing Update
         run: |
           git config user.email ${{ secrets.GIT_EMAIL }}
