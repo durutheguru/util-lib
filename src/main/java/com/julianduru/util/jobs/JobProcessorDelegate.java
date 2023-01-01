@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public abstract class JobProcessorDelegate {
 
 
-    AtomicBoolean processing = new AtomicBoolean(false);
+    static AtomicBoolean processing = new AtomicBoolean(false);
 
 
     Logger logger = Logger.getLogger(JobProcessorDelegate.class.getName());
@@ -29,7 +29,9 @@ public abstract class JobProcessorDelegate {
 
         try {
             processing.set(true);
+            logger.info("Processing... " + getClass().getName());
             doProcessing();
+            logger.info("Done Processing... " + getClass().getName());
         }
         finally {
             processing.set(false);
