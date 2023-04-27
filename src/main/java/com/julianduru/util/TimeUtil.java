@@ -121,6 +121,11 @@ public class TimeUtil {
     }
 
 
+    public static String formatDateTime(LocalDateTime ldt) {
+        return ldt == null ? "" : ldt.format(DEFAULT_DATE_TIME_FORMATTER);
+    }
+
+
 }
 
 
